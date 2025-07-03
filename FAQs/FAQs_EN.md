@@ -40,7 +40,8 @@ Wiring diagram:
 1. Confirm you're using OYMotion's USB-to-RS485 module
 2. Check for loose connections or damaged wiring
 3. Verify proper common grounding (refer to wiring diagram)
-4. If issues persist, connect the 120Ω termination resistor by shorting A and R ports
+4. If issues persist, connect the 120Ω termination resistor by shorting A and R ports(port 2 and port 3). As shown in the following figure:
+   ![120Ω resistor](res/terminal_resistor.png)
 5. Contact technical support if problems continue
 
 ---
@@ -57,7 +58,7 @@ Wiring diagram:
 
 ### 4. Q: What are ROHand's current specifications?
 
-**A:** (1st generation at 24 V):
+**A:** (At 24 V):
 
 - Standby current: ~0.12 A
 - No-load motion current: ~0.25 A
@@ -74,7 +75,7 @@ Wiring diagram:
 
 ---
 
-### 6. Q: Why do fingers extend fully during calibration?
+### 6. Q: Why do fingers extend fully during self-test?
 
 **A:** The startup self-test extends all fingers. If fingers don't extend:
 
@@ -94,11 +95,11 @@ Wiring diagram:
 
 - Registers: `ROH_FINGER_POS_TARGET0` to `ROH_FINGER_POS_TARGET5`
 - Values: 0 (fully open) to 65535 (fully closed)  
-Thumb rotation: 0° (side) to 90° (palm) at 65535  
+Thumb rotation: 0 (0° side) to 65535 (90° palm) at  
 
 Reference:  
 [roh_registers_v2.h](../protocol/roh_registers_v2.h) / [roh_registers_v2.py](../protocol/roh_registers_v2.py)  
-Sample code: Appendix 1
+Sample code: [Appendix 1](#appendix-1-basic-control)
 
 ---
 
@@ -107,7 +108,7 @@ Sample code: Appendix 1
 **A:**
 **Read angles:**  
 Registers `ROH_FINGER_ANGLE0` to `ROH_FINGER_ANGLE5`  
-Values: Signed integers = actual angle × 100  
+Values: Signed integers ÷ 100 = actual angle
 
 **Set angles:**  
 Write to `ROH_FINGER_ANGLE_TARGET0` to `ROH_FINGER_ANGLE_TARGET5`  
@@ -125,10 +126,10 @@ Protocol: [OHandModBusRTUProtocol_CN.md](../protocol/OHandModBusRTUProtocol_CN.m
 
 **A:** Actual ranges vary per unit. To measure:  
 
-1. Write 0 to `ROH_FINGER_POS_TARGETx` → Read `ROH_FINGER_ANGLEX` (min angle)
-2. Write 65535 → Read register (max angle)  
+1. Write 0 to `ROH_FINGER_POS_TARGETx` → Read `ROH_FINGER_ANGLEX` (max  angle)
+2. Write 65535 → Read register (min angle)  
 
-Sample code: Appendix 2
+Sample code: [Appendix 2](#appendix-2-measure-angle-ranges)
 
 ---
 
@@ -169,10 +170,11 @@ Sample code: Appendix 2
 
 ### 7. Q: What control modes are available?
 
-**A:** ROH-A001 supports:
+**A:** Supports:
 
 - **Position Control:** Direct motor positioning
 - **Angle Control:** Converts angles to positions
+- **Force Control:** Finger force feedback(ROH-AP001 only)
 
 ---
 
@@ -182,7 +184,7 @@ Sample code: Appendix 2
 
 - Real-time speed/current monitoring
 - Stall protection (>500mA → pulsed retries)
-- Heat reduction logic (Appendix 3)
+- Heat reduction logic: [Appendix 3](#appendix-3-reduce-heat-from-motor-stalls)
 
 ---
 
@@ -202,7 +204,7 @@ Sample code: Appendix 2
 **A:**
 
 - Avoid frequent target updates
-- Implement directional control (Appendix 4)
+- Implement directional control: [Appendix 4](#appendix-4-prevent-shakingoverheating)
 - Send commands only when direction changes
 
 ---
@@ -215,7 +217,7 @@ Sample code: Appendix 2
 2. Set target forces: `ROH_FINGER_FORCE_TARGET0`-`ROH_FINGER_FORCE_TARGET4`
 3. To exit: Set targets to 0
 
-Sample code: Appendix 5
+Sample code: [Appendix 5](#appendix-5-force-control-mode-roh-ap001)
 
 ---
 
