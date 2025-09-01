@@ -420,7 +420,7 @@ _notes:_
 ROH_FINGER_FORCE_EX0 to ROH_FINGER_FORCE_EX9 are the starting addresses for the data of individual force sensors. The actual data length for each sensor depends on the hardware, and each data value is of type uint16.
 
 1. Dot Matrix Version:
-   Thumb: 7 × 5 bytes (corresponding to 18 registers). The high 8 bits of the first register represent the first data byte. Each byte independently indicates the force magnitude in units of 10mN, and so on.
+   Thumb: 7 × 5 bytes (corresponding to 18 registers). The high 8 bits of the first register represent the first data byte. Each byte independently indicates the force magnitude in units of mN, and so on.
    Index finger: 12 × 5 bytes.
    Middle finger: 12 × 5 bytes.
    Ring finger: 12 × 5 bytes.
@@ -431,7 +431,7 @@ ROH_FINGER_FORCE_EX0 to ROH_FINGER_FORCE_EX9 are the starting addresses for the 
    TBD.
 
 3. 1D Force Version:
-   uint6 data, representing force magnitude in units of 10mN.
+   uint6 data, representing force magnitude in units of mN.
 
 Enclose the C/C++ macro definition of registers:
 
