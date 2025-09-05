@@ -18,4 +18,4 @@ ROS2 URDF package: [https://github.com/oymotion/rohand_gen2_urdf_ros2](https://g
 
 ROHand only Examples: [https://github.com/oymotion/roh_gen2_demos](https://github.com/oymotion/roh_gen2_demos)
 
-Examples with Realman robotic arm RM65: [https://github.com/oymotion/roh_gen2_with_rm65](https://github.com/oymotion/roh_with_rm65)
+Examples with Realman robotic arm RM65: [https://github.com/oymotion/roh_with_rm65](https://github.com/oymotion/roh_with_rm65)
