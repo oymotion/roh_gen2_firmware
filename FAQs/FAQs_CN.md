@@ -149,19 +149,10 @@
 
 ### 4. 问：如何检测抓到物体？
 
-**答:** 根据型号:
-
-**ROH-AP001 (带力反馈):**  
-
 - 采用点阵式力传感器
 - 获取合力: `ROH_FINGER_FORCE0`-`ROH_FINGER_FORCE5`
 - 获取单点力: `ROH_FINGER_FORCE_EX0`-`ROH_FINGER_FORCE_EX9`  
 ![ROH-AP001 Sensor Map](res/force_dot.png)
-
-**ROH-LiteS001:**  
-
-- 通过读取状态寄存器 `ROH_FINGER_STATUS0`-`ROH_FINGER_STATUS5`
-- 状态码 5 (`STATUS_STUCK`) 表示电机堵转，则为抓到物体
 
 ---
 
@@ -188,7 +179,7 @@
 
 - **位置控制:** 直接电机定位
 - **角度控制:** 角度→位置转换
-- **力量控制:** 指尖力反馈，ROH-AP001支持
+- **力量控制:** 指尖力反馈
 
 ---
 
@@ -223,7 +214,7 @@
 
 ---
 
-### 11. 问: 如何使用力控模式 (ROH-AP001)?
+### 11. 问: 如何使用力控模式?
 
 **答:**
 
@@ -231,7 +222,7 @@
 2. 设置目标力：`ROH_FINGER_FORCE_TARGET0`-`ROH_FINGER_FORCE_TARGET4`
 3. 退出：将目标力设为0
 
-示例代码：[附录5](#附录-5-力量控制模式-roh-ap001)
+示例代码：[附录5](#附录-5-力量控制模式)
 
 ---
 
@@ -487,7 +478,7 @@ while True:
             print(f"client.write_register({ROH_FINGER_POS_TARGET0}, {pos}, {NODE_ID}) returned", resp)
 ```
 
-### 附录 5: 力量控制模式 (ROH-AP001)
+### 附录 5: 力量控制模式
 
 ```python
 

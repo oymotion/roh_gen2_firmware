@@ -148,19 +148,10 @@ Sample code: [Appendix 2](#appendix-2-measure-angle-ranges)
 
 ### 4. Q: How can I detect object grasping?
 
-**A:** Depends on model:
-
-**ROH-AP001 (with force feedback):**  
-
 - Uses piezoresistive matrix sensors
 - Read combined force: `ROH_FINGER_FORCE0`-`ROH_FINGER_FORCE5`
 - Read individual sensors: `ROH_FINGER_FORCE_EX0`-`ROH_FINGER_FORCE_EX9`  
 ![ROH-AP001 Sensor Map](res/force_dot.png)
-
-**ROH-LiteS001:**  
-
-- Detect grasping via `ROH_FINGER_STATUS0`-`ROH_FINGER_STATUS5`
-- Status code 5 (`STATUS_STUCK`) indicates contact
 
 ---
 
@@ -187,7 +178,7 @@ Sample code: [Appendix 2](#appendix-2-measure-angle-ranges)
 
 - **Position Control:** Direct motor positioning
 - **Angle Control:** Converts angles to positions
-- **Force Control:** Finger force feedback(ROH-AP001 only)
+- **Force Control:** Finger force feedback
 
 ---
 
@@ -222,7 +213,7 @@ Sample code: [Appendix 2](#appendix-2-measure-angle-ranges)
 
 ---
 
-### 11. Q: How do I use force control mode (ROH-AP001)?
+### 11. Q: How do I use force control mode?
 
 **A:**
 
@@ -230,7 +221,7 @@ Sample code: [Appendix 2](#appendix-2-measure-angle-ranges)
 2. Set target forces: `ROH_FINGER_FORCE_TARGET0`-`ROH_FINGER_FORCE_TARGET4`
 3. To exit: Set targets to 0
 
-Sample code: [Appendix 5](#appendix-5-force-control-mode-roh-ap001)
+Sample code: [Appendix 5](#appendix-5-force-control-mode)
 
 ---
 
@@ -488,7 +479,7 @@ while True:
             print(f"client.write_register({ROH_FINGER_POS_TARGET0}, {pos}, {NODE_ID}) returned", resp)
 ```
 
-### Appendix 5: Force Control Mode (ROH-AP001)
+### Appendix 5: Force Control Mode
 
 ```python
 
