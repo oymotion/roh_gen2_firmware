@@ -20,7 +20,7 @@ Firmware, protocol and desktop application for Robotic OHand，i.e.，ROH.
   - [roh_registers_v2.h](protocol/roh_registers_v2.h)/[roh_registers_v2.py](protocol/roh_registers_v2.py): registers definitions for C, C++ & Python.
 - *[res](res)*: resource file for markdown files
 - *[UserManual](UserManual)*: user manual for ROH
-  - [ROH-AP001-Dexterous-Hand-V1.x.x.pdf](UserManual/ROH-AP001-Dexterous-Hand-V1.0.4.pdf): User manual
+  - [ROH-AP001-Dexterous-Hand-V1.x.x.pdf](UserManual/ROH-AP001-Dexterous-Hand-V1.0.5.pdf): User manual
 
 ## Firmware Update
 
