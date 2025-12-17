@@ -13,14 +13,15 @@ Firmware, protocol and desktop application for Robotic OHand，i.e.，ROH.
   - files in subdirectory [Can](firmware/Can) are Can versions of ROH-AP001.
   - [RELEASE_INFO.md](firmware/RELEASE_INFO.md): release information for each firmware version.
 - *[OHandSetting](OHandSetting)*: desktop application for Robotic OHand (also for Prosthetic OHand, so it's name is "OHandSetting"). Windows and Ubuntu system are supported currently.
-  - [OHandSetting-User-Manual-V1.x.pdf](OHandSetting/OHandSetting-Instruction-Manual-V1.4.pdf): User manual for desktop application.
+  - [OHandSetting-Instruction-Manual-V1.x.pdf](OHandSetting/OHandSetting-Instruction-Manual-V1.6.pdf): User manual for desktop application.
 - *[protocol](protocol)*: protocol specification for ModBus-RTU and SerialCtrl versions
   - [OHandModBusRTUProtocol_EN.md](protocol/OHandModBusRTUProtocol_EN.md): ModBus-RTU protocol specification.
   - [OHandSerialProtocol_EN.md](protocol/OHandSerialProtocol_EN.md): SerialCtrl and Can protocol specification.
   - [roh_registers_v2.h](protocol/roh_registers_v2.h)/[roh_registers_v2.py](protocol/roh_registers_v2.py): registers definitions for C, C++ & Python.
 - *[res](res)*: resource file for markdown files
 - *[UserManual](UserManual)*: user manual for ROH
-  - [ROH-AP001-Dexterous-Hand-V1.x.x.pdf](UserManual/ROH-AP001-Dexterous-Hand-V1.0.5.pdf): User manual
+  - [ROH-AP001-Dexterous-Hand-V1.x.x.pdf](UserManual/ROH-AP001-Dexterous-Hand-V1.0.5.pdf): ROH-AP001 User manual
+  - [ROH-AP002-Dexterous-Hand-V1.x.x.pdf](UserManual/ROH-AP002-Dexterous-Hand-V1.0.0.pdf): ROH-AP002 User manual
 
 ## Firmware Update
 

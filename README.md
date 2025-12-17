@@ -1,6 +1,8 @@
-# Firmware, Protocol and Desktop Application for ROH-AP001 Dexterous Hand
+# Firmware, Protocol and Desktop Application for ROH-AP001 & ROH-AP002 Dexterous Hand
 
-![ROH-AP001 Dexterous Hand](res/ROH-AP001.png)
+| ROH-AP001                                      | ROH-AP002                                      |
+| ---------------------------------------------- | ---------------------------------------------- |
+| ![ROH-AP001 Dexterous Hand](res/ROH-AP001.png) | ![ROH-AP002 Dexterous Hand](res/ROH-AP002.png) |
 
 Firmware, protocol and desktop application. See [README_EN.md](README_EN.md) for detailed information.
 
