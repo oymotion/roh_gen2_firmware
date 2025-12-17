@@ -304,16 +304,16 @@ RS232、RS485 通讯参数都是 115200bps、8 数据位、1 停止位、无奇�
 | ROH_FINGER_FORCE7              |       1182 | R         |                    | 保留                                                                                                                             |
 | ROH_FINGER_FORCE8              |       1183 | R         |                    | 保留                                                                                                                             |
 | ROH_FINGER_FORCE9              |       1184 | R         |                    | 保留                                                                                                                             |
-| ROH_FINGER_STALL_SPEED0        |       1185 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED1        |       1186 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED2        |       1187 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED3        |       1188 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED4        |       1189 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED5        |       1190 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED6        |       1191 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED7        |       1192 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED8        |       1193 | R/W       |                    |                                                                                                                                  |
-| ROH_FINGER_STALL_SPEED9        |       1194 | R/W       |                    |                                                                                                                                  |
+| ROH_FINGER_STALL_SPEED0        |       1185 | R/W       | 16                 | 大拇指弯曲电机堵转停机速度（uint16），单位 逻辑位置/s，开机时恢复为默认值                                                        |
+| ROH_FINGER_STALL_SPEED1        |       1186 | R/W       | 16                 | 食指电机堵转停机速度（uint16），单位 逻辑位置/s，开机时恢复为默认值                                                              |
+| ROH_FINGER_STALL_SPEED2        |       1187 | R/W       | 16                 | 中指电机堵转停机速度（uint16），单位 逻辑位置/s，开机时恢复为默认值                                                              |
+| ROH_FINGER_STALL_SPEED3        |       1188 | R/W       | 16                 | 无名指电机堵转停机速度（uint16），单位 逻辑位置/s，开机时恢复为默认值                                                            |
+| ROH_FINGER_STALL_SPEED4        |       1189 | R/W       | 16                 | 小拇指电机堵转停机速度（uint16），单位 逻辑位置/s，开机时恢复为默认值                                                            |
+| ROH_FINGER_STALL_SPEED5        |       1190 | R/W       | 16                 | 大拇指旋转电机堵转停机速度（uint16），开机时恢复为默认值                                                                         |
+| ROH_FINGER_STALL_SPEED6        |       1191 | R/W       |                    | 保留                                                                                                                             |
+| ROH_FINGER_STALL_SPEED7        |       1192 | R/W       |                    | 保留                                                                                                                             |
+| ROH_FINGER_STALL_SPEED8        |       1193 | R/W       |                    | 保留                                                                                                                             |
+| ROH_FINGER_STALL_SPEED9        |       1194 | R/W       |                    | 保留                                                                                                                             |
 | ROH_FINGER_STALL_CURRENT0      |       1195 | R/W       | 200                | 大拇指弯曲电机堵转停机电流限制值（uint16），单位 mA，开机时恢复为默认值                                                          |
 | ROH_FINGER_STALL_CURRENT1      |       1196 | R/W       | 200                | 食指弯曲电机堵转停机电流限制值（uint16），单位 mA，开机时恢复为默认值                                                            |
 | ROH_FINGER_STALL_CURRENT2      |       1197 | R/W       | 200                | 中指弯曲电机堵转停机电流限制值（uint16），单位 mA，开机时恢复为默认值                                                            |
@@ -456,7 +456,7 @@ ROH_FINGER_FORCE_EX0 到 ROH_FINGER_FORCE_EX9 为各个力传感器数据的起�
 
 ```C
 
-#define FORCE_GROUP_SIZE              (100)
+#define FORCE_GROUP_SIZE                   (100)
 
 /* ModBus-RTU registers */   
 

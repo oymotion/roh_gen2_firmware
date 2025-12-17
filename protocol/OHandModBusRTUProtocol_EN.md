@@ -304,16 +304,16 @@ In case the error code is EC04_SERVER_DEVICE_FAILURE, the register ROH_SUB_EXCEP
 | ROH_FINGER_FORCE7              |             1182 | R                 |                                    | Reserved.                                                                                                                                                         |
 | ROH_FINGER_FORCE8              |             1183 | R                 |                                    | Reserved.                                                                                                                                                         |
 | ROH_FINGER_FORCE9              |             1184 | R                 |                                    | Reserved.                                                                                                                                                         |
-| ROH_FINGER_STALL_SPEED0        |             1185 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED1        |             1186 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED2        |             1187 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED3        |             1188 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED4        |             1189 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED5        |             1190 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED6        |             1191 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED7        |             1192 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED8        |             1193 | R/W               |                                    |                                                                                                                                                                   |
-| ROH_FINGER_STALL_SPEED9        |             1194 | R/W               |                                    |                                                                                                                                                                   |
+| ROH_FINGER_STALL_SPEED0        |             1185 | R/W               | 16                                 | Thumb bending motor stall stop speed (uint16),unit logical_pos/s, resets to default value on startup                                                              |
+| ROH_FINGER_STALL_SPEED1        |             1186 | R/W               | 16                                 | Index finger bending motor stall stop time (uint16), logical_pos/s, resets to default value on startup                                                            |
+| ROH_FINGER_STALL_SPEED2        |             1187 | R/W               | 16                                 | Middle finger bending motor stall stop time (uint16), logical_pos/s, resets to default value on startup                                                           |
+| ROH_FINGER_STALL_SPEED3        |             1188 | R/W               | 16                                 | Ring finger bending motor stall stop time (uint16), logical_pos/s, resets to default value on startup                                                             |
+| ROH_FINGER_STALL_SPEED4        |             1189 | R/W               | 16                                 | Little finger bending motor stall stop time (uint16), logical_pos/s, resets to default value on startup                                                           |
+| ROH_FINGER_STALL_SPEED5        |             1190 | R/W               | 16                                 | Thumb rotation motor stall stop time (uint16), logical_pos/s, resets to default value on startup                                                                  |
+| ROH_FINGER_STALL_SPEED6        |             1191 | R/W               |                                    | Reserved                                                                                                                                                          |
+| ROH_FINGER_STALL_SPEED7        |             1192 | R/W               |                                    | Reserved                                                                                                                                                          |
+| ROH_FINGER_STALL_SPEED8        |             1193 | R/W               |                                    | Reserved                                                                                                                                                          |
+| ROH_FINGER_STALL_SPEED9        |             1194 | R/W               |                                    | Reserved                                                                                                                                                          |
 | ROH_FINGER_STALL_CURRENT0      |             1195 | R/W               | 200                                | Thumb bending motor stall stop current limit value (uint16), unit mA, resets to default value on startup                                                          |
 | ROH_FINGER_STALL_CURRENT1      |             1196 | R/W               | 200                                | Index finger bending motor stall stop current limit value (uint16), unit mA, resets to default value on startup                                                   |
 | ROH_FINGER_STALL_CURRENT2      |             1197 | R/W               | 200                                | Middle finger bending motor stall stop current limit value (uint16), unit mA, resets to default value on startup                                                  |
@@ -456,7 +456,7 @@ Enclose the C/C++ macro definition of registers:
 
 ```C
 
-#define FORCE_GROUP_SIZE              (100)
+#define FORCE_GROUP_SIZE                   (100)
 
 /* ModBus-RTU registers */   
 
@@ -764,9 +764,6 @@ FORCE_GROUP_SIZE              = (100)  # Max entries count for each force sensor
 
 # ModBus-RTU registers for ROH
 
-MODBUS_PROTOCOL_VERSION_MAJOR    = 2
-FORCE_GROUP_SIZE                 = (100)
-   
 ROH_PROTOCOL_VERSION             = (1000) # R
 ROH_FW_VERSION                   = (1001) # R
 ROH_FW_REVISION                  = (1002) # R
