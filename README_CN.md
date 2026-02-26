@@ -11,6 +11,7 @@ ROH 固件、协议文档和桌面端应用
   - 子目录中 [SerialCtrl](firmware/SerialCtrl)文件为ROH-AP001的SerialCtrl版本，能处理90Hz+频率的指令。
   - 子目录中 [ModBus-RTU+SerialCtrl](firmware/ModBus-RTU+SerialCtrl)文件为ROH-AP001的双协议混合版本，推荐使用。
   - 子目录中 [Can](firmware/Can)文件为ROH-AP001的Can协议版本。
+  - 子目录中 [Realman_Plus_Protocol](firmware/Realman_Plus_Protocol)文件为ROH-AP001的睿尔曼末端生态协议版本，升级后需使用睿尔曼生态协议调试工具[调试工具](https://gitee.com/RealManRobot/rm_arm_plus_protocol/tree/main)。
   - [RELEASE_INFO.md](firmware/RELEASE_INFO.md): 每个固件版本的发布信息。
 - *[OHandSetting](OHandSetting)*: 机器人灵巧手(Robotic OHand)的桌面端应用(仿生手Prosthetic OHand也适用，因此命名OHandSetting)，目前支持 Windows 系统 和 Ubuntu 系统。
   - [OHandSetting使用手册-V1.x.pdf](OHandSetting/OHandSetting使用手册-V1.6.pdf): 桌面端应用使用说明。

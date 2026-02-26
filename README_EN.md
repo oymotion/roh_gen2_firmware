@@ -11,6 +11,7 @@ Firmware, protocol and desktop application for Robotic OHand，i.e.，ROH.
   - files in subdirectory [SerialCtrl](firmware/SerialCtrl) are SerialCtrl versions of ROH-AP001, can process commands at 90Hz+.
   - files in subdirectory [ModBus-RTU+SerialCtrl](firmware/ModBus-RTU+SerialCtrl) are for mixed version of ROH-AP001, recommended.
   - files in subdirectory [Can](firmware/Can) are Can versions of ROH-AP001.
+  - files in subdirectory [Realman_Plus_Protocol](firmware/Realman_Plus_Protocol) are for Realman plus protocol of ROH-AP001. After the upgrade, the Realman debugging tool [Debugging Tool](https://gitee.com/RealManRobot/rm_arm_plus_protocol/tree/main) must be used
   - [RELEASE_INFO.md](firmware/RELEASE_INFO.md): release information for each firmware version.
 - *[OHandSetting](OHandSetting)*: desktop application for Robotic OHand (also for Prosthetic OHand, so it's name is "OHandSetting"). Windows and Ubuntu system are supported currently.
   - [OHandSetting-Instruction-Manual-V1.x.pdf](OHandSetting/OHandSetting-Instruction-Manual-V1.6.pdf): User manual for desktop application.
