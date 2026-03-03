@@ -439,15 +439,32 @@ _notes:_
 ROH_FINGER_FORCE_EX0 to ROH_FINGER_FORCE_EX9 are the starting addresses for the data of individual force sensors. The actual data length for each sensor depends on the hardware, and each data value is of type uint16.
 
 1. Dot Matrix Version:
+   
    Thumb: 7 × 5 bytes (corresponding to 18 registers). The high 8 bits of the first register represent the first data byte. Each byte independently indicates the force magnitude in units of mN, and so on.
+   
    Index finger: 12 × 5 bytes.
+   
    Middle finger: 12 × 5 bytes.
+   
    Ring finger: 12 × 5 bytes.
+   
    Little finger: 8 × 4 bytes.
+   
    Palm: 11 × 5 bytes.
 
 2. 3D Force Version:
-   TBD.
+   
+   Thumb: 6 bytes, corresponding to 3 registers. The first register represents the normal force value; the second register represents the tangential force value, in units of mN; the third register represents the tangential force angle.
+
+   Index finger: 12 bytes, corresponding to 6 registers across two channels. The first register represents the Channel 1 normal force value; the second register represents the Channel 1 tangential force value, in units of mN; the third register represents the Channel 1 tangential force angle; the fourth register represents the Channel 2 normal force value, in units of mN; the fifth and sixth registers are fixed at 0, reserved for future 3D force updates for the second channel.
+   
+   Middle finger: 12 bytes, same as the index finger.
+   
+   Ring finger: 12 bytes, same as the index finger.
+   
+   Little finger: 6 bytes, same as the thumb
+   
+   Palm: 11 × 5 bytes, same as the Dot Matrix Version.
 
 3. 1D Force Version:
    uint6 data, representing force magnitude in units of mN.
@@ -741,9 +758,6 @@ Enclose the C/C++ macro definition of registers:
 #define ROH_MANU_DATA13                    (1278) /* R/W */
 #define ROH_MANU_DATA14                    (1279) /* R/W */
 #define ROH_MANU_DATA15                    (1280) /* R/W */
-#define ROH_SPEED_CTRL_BRAKE_DISTANCE      (1281) /* R/W */
-#define ROH_SPEED_CTRL_ACCEL_DISTANCE      (1282) /* R/W */
-#define ROH_SPEED_CTRL_PID_SPEED_RATIO     (1283) /* R/W */
 
 #define ROH_FINGER_FORCE_EX0               (2000 + 0 * FORCE_GROUP_SIZE) /* R   */
 #define ROH_FINGER_FORCE_EX1               (2000 + 1 * FORCE_GROUP_SIZE) /* R   */
@@ -1045,9 +1059,6 @@ ROH_MANU_DATA12                  = (1277) # R/W
 ROH_MANU_DATA13                  = (1278) # R/W
 ROH_MANU_DATA14                  = (1279) # R/W
 ROH_MANU_DATA15                  = (1280) # R/W
-ROH_SPEED_CTRL_BRAKE_DISTANCE    = (1281) # R/W
-ROH_SPEED_CTRL_ACCEL_DISTANCE    = (1282) # R/W
-ROH_SPEED_CTRL_PID_SPEED_RATIO   = (1283) # R/W
 
 ROH_FINGER_FORCE_EX0             = (2000 + 0 * FORCE_GROUP_SIZE) # R
 ROH_FINGER_FORCE_EX1             = (2000 + 1 * FORCE_GROUP_SIZE) # R

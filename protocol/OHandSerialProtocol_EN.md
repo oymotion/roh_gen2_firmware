@@ -148,6 +148,39 @@ Note:
 
 1. If not specified, single-byte data is uint8 type, XXX_L, XXX_H represent the low byte and high byte of uint16 type; XXX_BYTE0, XXX_BYTE1, XXX_BYTE2, XXX_BYTE3 represent the 4 bytes from low to high of uint32 type;
 2. If specified as float32 type, XXX_BYTE0, XXX_BYTE1, XXX_BYTE2, XXX_BYTE3 represent the 4 bytes from low to high of float32 type.
+3. When using the HAND_CMD_GET_FINGER_FORCE command to obtain force data, the version is determined by the value of FORCE_ENTRY_CNT. If FORCE_ENTRY_CNT is greater than 12, it is the Dot Matrix Version; if it is less than or equal to 12, it is the 3D Force Version.
+
+(1) Dot Matrix Version:
+
+Thumb: 7 × 5 bytes, corresponding to data from all points. Each byte independently indicates the 
+force magnitude in units of mN, and so on;
+
+Index finger: 12 × 5 bytes;
+
+Middle finger: 12 × 5 bytes;
+
+Ring finger: 12 × 5 bytes;
+
+Little finger: 8 × 4 bytes;
+
+Palm: 11 × 5 bytes.
+
+(2) 3D Force Version:
+
+Thumb: 6 bytes. The first byte is the low 8 bits of the normal force value, and the second byte is the high 8 bits of the normal force value; the third byte is the low 8 bits of the tangential force value, and the fourth byte is the high 8 bits of the tangential force value, in units of mN; the fifth byte is the low 8 bits of the tangential force angle, and the sixth byte is the high 8 bits of the tangential force angle;
+
+Index finger: 12 bytes, divided into two channels. The first byte is the low 8 bits of the Channel 1 normal force value, and the second byte is the high 8 bits of the Channel 1 normal force value; the third byte is the low 8 bits of the Channel 1 tangential force value, and the fourth byte is the high 8 bits of the Channel 1 tangential force value, in units of mN; the fifth byte is the low 8 bits of the Channel 1 tangential force angle, and the sixth byte is the high 8 bits of the Channel 1 tangential force angle; the seventh byte is the low 8 bits of the Channel 2 normal force value, and the eighth byte is the high 8 bits of the Channel 2 normal force value, in units of mN; the ninth through twelfth bytes are fixed at 0, reserved for future 3D force updates for the second channel;
+
+Middle finger: 12 bytes, same as the index finger;
+
+Ring finger: 12 bytes, same as the index finger;
+
+Little finger: 6 bytes, same as the thumb;
+
+Palm: 11 × 5 bytes, same as the Dot Matrix Version.
+
+(3) 1D Force Version:
+uint6 data, representing force magnitude in units of mN.
 
 ## 6. Dexterous Hand Error Codes
 

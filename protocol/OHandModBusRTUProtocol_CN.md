@@ -439,15 +439,32 @@ RS232、RS485 通讯参数都是 115200bps、8 数据位、1 停止位、无奇�
 ROH_FINGER_FORCE_EX0 到 ROH_FINGER_FORCE_EX9 为各个力传感器数据的起始地址，每个传感器实际的数据长度和硬件相关，每个数据为 uint16 类型。
 
 1. 点阵版本：
+   
    大拇指7 \* 5个字节，对应18个寄存器数据，第一个寄存器数据高8位为首个数据字节，每个字节独立表示力的大小，单位为mN，以此类推；
+   
    食指12 \* 5个字节；
+   
    中指12 \* 5个字节；
+   
    无名指12 \* 5个字节；
+   
    小指8 \* 4个字节；
+   
    手掌11 \* 5个字节。
 
 2. 三维力版本：
-   待定
+   
+   大拇指6 个字节，对应3个寄存器数据，第一个寄存器数据为法向力值，第二个寄存器数据为切向力值，单位为mN，第三个寄存器数据为切向力角度值；
+   
+   食指12 个字节，对应6个寄存器数据，分为两个通道，第一个寄存器数据为第一通道法向力值，第二个寄存器数据为第一通道切向力值，单位为mN，第三个寄存器数据为第一通道切向力角度值，第四个寄存器为第二通道法向力值，单位为mN，第五个寄存器和第六个寄存器数据固定为0，为以后更新第二通道三维力预留；
+   
+   中指12 个字节，与食指相同；
+   
+   无名指12个字节，与食指相同；
+   
+   小指6个字节，与大拇指相同；
+   
+   手掌11 \* 5个字节，与点阵版本相同。
 
 3. 一维力版本：
    uint16 数据，表示力的大小，单位mN。
@@ -741,9 +758,6 @@ ROH_FINGER_FORCE_EX0 到 ROH_FINGER_FORCE_EX9 为各个力传感器数据的起�
 #define ROH_MANU_DATA13                    (1278) /* R/W */
 #define ROH_MANU_DATA14                    (1279) /* R/W */
 #define ROH_MANU_DATA15                    (1280) /* R/W */
-#define ROH_SPEED_CTRL_BRAKE_DISTANCE      (1281) /* R/W */
-#define ROH_SPEED_CTRL_ACCEL_DISTANCE      (1282) /* R/W */
-#define ROH_SPEED_CTRL_PID_SPEED_RATIO     (1283) /* R/W */
 
 #define ROH_FINGER_FORCE_EX0               (2000 + 0 * FORCE_GROUP_SIZE) /* R   */
 #define ROH_FINGER_FORCE_EX1               (2000 + 1 * FORCE_GROUP_SIZE) /* R   */
@@ -1045,9 +1059,6 @@ ROH_MANU_DATA12                  = (1277) # R/W
 ROH_MANU_DATA13                  = (1278) # R/W
 ROH_MANU_DATA14                  = (1279) # R/W
 ROH_MANU_DATA15                  = (1280) # R/W
-ROH_SPEED_CTRL_BRAKE_DISTANCE    = (1281) # R/W
-ROH_SPEED_CTRL_ACCEL_DISTANCE    = (1282) # R/W
-ROH_SPEED_CTRL_PID_SPEED_RATIO   = (1283) # R/W
 
 ROH_FINGER_FORCE_EX0             = (2000 + 0 * FORCE_GROUP_SIZE) # R
 ROH_FINGER_FORCE_EX1             = (2000 + 1 * FORCE_GROUP_SIZE) # R
