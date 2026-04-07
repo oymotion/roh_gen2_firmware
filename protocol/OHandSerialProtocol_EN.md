@@ -179,8 +179,6 @@ Little finger: 6 bytes, same as the thumb;
 
 Palm: 11 × 5 bytes, same as the Dot Matrix Version.
 
-(3) 1D Force Version:
-uint6 data, representing force magnitude in units of mN.
 
 ## 6. Dexterous Hand Error Codes
 
